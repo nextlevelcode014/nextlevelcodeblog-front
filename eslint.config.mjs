@@ -1,14 +1,19 @@
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
+import { readFileSync } from 'fs'
 
+// Definições de caminho
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+// Corrigido: adição do `recommendedConfig`
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  recommendedConfig: require('eslint/conf/eslint-recommended'),
 })
 
+// Configuração do ESLint
 const eslintConfig = [
   ...compat.config({
     extends: [
@@ -27,11 +32,7 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': 'warn',
       'prettier/prettier': 'error',
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
+    settings: { react: { version: 'detect' } },
   }),
 ]
 

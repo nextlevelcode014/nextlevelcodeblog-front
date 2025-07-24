@@ -10,7 +10,7 @@ import { FiArrowRight } from 'react-icons/fi'
 import { ImSpinner8 } from 'react-icons/im'
 
 interface LoginFormProps {
-  handleSubmit: UseFormHandleSubmit<LoginData, undefined>
+  handleSubmit: UseFormHandleSubmit<LoginData>
   handleLogin: (data: LoginData) => void
   loginMutation: UseMutationResult<LoginResponse, Error, LoginData, unknown>
   register: UseFormRegister<LoginData>
