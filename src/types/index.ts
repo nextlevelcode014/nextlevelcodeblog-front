@@ -116,6 +116,11 @@ export interface RegisterDataForm {
   confirmPassword: string
 }
 
+export interface ResetPasswordDataForm {
+  newPassword: string
+  confirmPassword: string
+}
+
 export interface ResetPasswordData {
   token: string
   newPassword: string

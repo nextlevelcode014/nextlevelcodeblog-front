@@ -6,7 +6,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { FaLock, FaCheck } from 'react-icons/fa'
 import { resetPasswordSchema } from '@/services/schemas'
-import { ResetPasswordData } from '@/types'
+import { ResetPasswordData, ResetPasswordDataForm } from '@/types'
 import { useState } from 'react'
 import { apiService } from '@/services/api'
 import { useRecaptcha } from '@/hooks/useRecaptcha'
@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ResetPasswordData>({
+  } = useForm<ResetPasswordDataForm>({
     resolver: zodResolver(resetPasswordSchema),
   })
   const token = useSearchParams().get('token') || ''
@@ -34,7 +34,7 @@ export default function ResetPasswordPage() {
     },
   })
 
-  const onSubmit = async (data: ResetPasswordData) => {
+  const onSubmit = async (data: ResetPasswordDataForm) => {
     const recaptchaToken = await getReCaptchaToken('reset_password')
     if (!recaptchaToken) {
       setMessage('Atividade suspeita')
