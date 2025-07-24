@@ -57,6 +57,8 @@ export default function Register() {
         email: data.email,
         name: data.name,
         confirmPassword: data.confirmPassword,
+        password: data.password,
+        recaptchaToken: token,
       }
       await registerMutation.mutateAsync(registerData)
     } catch (error) {

@@ -69,7 +69,7 @@ export default function Login() {
   }
 
   return (
-    <div className="bg-[#242424] p-4 sm:p-6 rounded-lg w-full max-w-[90vw] mx-auto mt-8 sm:max-w-md">
+    <div className="bg-[#242424] p-4 sm:p-6 rounded-lg w-full max-w-[90vw] ml-auto mr-auto mt-auto sm:max-w-md relative mx-4">
       <div className="text-center mb-6 sm:mb-8">
         <FaLock className="w-10 h-10 sm:w-12 sm:h-12 text-teal-500 mx-auto mb-3 sm:mb-4" />
         <h2 className="text-xl sm:text-2xl font-bold text-teal-400">
