@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { registerSchema } from '@/services/schemas'
-import { RegisterData } from '@/types'
+import { RegisterData, RegisterDataForm } from '@/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
@@ -23,7 +23,7 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<RegisterData>({
+  } = useForm<RegisterDataForm>({
     resolver: zodResolver(registerSchema),
     mode: 'onBlur',
   })
@@ -43,7 +43,7 @@ export default function Register() {
     setIsloadingMessage(message)
   }
 
-  const handleRegister = async (data: RegisterData) => {
+  const handleRegister = async (data: RegisterDataForm) => {
     try {
       const token = await getReCaptchaToken('register_user')
 
@@ -51,9 +51,14 @@ export default function Register() {
         setErrorMessage('❌ Erro ao validar reCAPTCHA. Tente novamente.')
         return
       }
-      data.recaptchaToken = token
-      data.authProvider = 'Credentials'
-      await registerMutation.mutateAsync(data)
+
+      let registerData: RegisterData = {
+        authProvider: 'Credentials',
+        email: data.email,
+        name: data.name,
+        confirmPassword: data.confirmPassword,
+      }
+      await registerMutation.mutateAsync(registerData)
     } catch (error) {
       setErrorMessage(
         "Registration attempt failed. Make sure you're not already signed in with Google!",

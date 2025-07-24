@@ -108,6 +108,14 @@ export interface RegisterData {
   emailVerified?: boolean
   authProvider: string
 }
+
+export interface RegisterDataForm {
+  name: string
+  email: string
+  password: string
+  confirmPassword: string
+}
+
 export interface ResetPasswordData {
   token: string
   newPassword: string

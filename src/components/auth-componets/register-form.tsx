@@ -1,4 +1,4 @@
-import { RegisterData } from '@/types'
+import { RegisterData, RegisterDataForm } from '@/types'
 import { UseMutationResult } from '@tanstack/react-query'
 import {
   FieldErrors,
@@ -9,10 +9,10 @@ import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa'
 import { FiArrowRight } from 'react-icons/fi'
 
 interface RegisterFormProps {
-  handleSubmit: UseFormHandleSubmit<RegisterData, undefined>
-  handleRegister: (data: RegisterData) => void
-  register: UseFormRegister<RegisterData>
-  errors: FieldErrors<RegisterData>
+  handleSubmit: UseFormHandleSubmit<RegisterDataForm, RegisterDataForm>
+  handleRegister: (data: RegisterDataForm) => void
+  register: UseFormRegister<RegisterDataForm>
+  errors: FieldErrors<RegisterDataForm>
   registerMutation: UseMutationResult<void, Error, RegisterData, unknown>
 }
 export default function RegisterForm({
