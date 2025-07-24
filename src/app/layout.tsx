@@ -56,11 +56,11 @@ function Footer() {
             nextlevelcode014@gmail.com
           </Link>
           <Link
-            href="https://github.com/m4rc3l04ugu2t0"
+            href="https://github.com/nextlevelcode014"
             target="_blank"
             className="text-gray-400 hover:text-gray-200 transition duration-200"
           >
-            github.com/m4rc3l04ugu2t0
+            github.com/nextlevelcode014
           </Link>
         </nav>
         <p className="text-gray-400">&copy; 2024 NextLevelCodeBlog.</p>

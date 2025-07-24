@@ -26,13 +26,22 @@ export default function AboutPage() {
             </h3>
             <div className="flex justify-center gap-3 sm:gap-4">
               <Link
-                href="https://github.com/m4rc3l04ugu2t0"
+                href="https://github.com/nextlevelcode014"
                 target="_blank"
                 rel="noopener noreferrer"
                 replace
                 className={`${stylesComponets.socialLink} px-4 py-2 text-sm sm:text-base`}
               >
                 GitHub
+              </Link>
+              <Link
+                href="www.linkedin.com/in/marceloaugustomoura"
+                target="_blank"
+                rel="noopener noreferrer"
+                replace
+                className={`${stylesComponets.socialLink} px-4 py-2 text-sm sm:text-base`}
+              >
+                LinkedIn
               </Link>
             </div>
           </div>
@@ -49,10 +58,9 @@ export default function AboutPage() {
             <p
               className={`${stylesComponets.baseStyleP} text-base sm:text-lg lg:text-xl`}
             >
-              With over a year immersed in technology, my passion grows
-              alongside rapid evolution in the field. Understanding the inner
-              workings of software has become essential in our increasingly
-              digital-dependent world.
+              I'm a curious student, I like to know how things really work and
+              create new things from them. It all started with my first laptop
+              and a USB stick with an Arch Linux ISO image to install. 
             </p>
 
             <div className={`${stylesComponets.highlightCard} p-4 sm:p-6`}>
@@ -93,7 +101,8 @@ export default function AboutPage() {
                     2025 - Current
                   </p>
                   <p className="text-gray-300 text-sm sm:text-base mt-1">
-                    Focused on Rust and low-level programming
+                    I'm studying computer science at university. Building
+                    stronger foundations. <br />
                   </p>
                 </div>
                 <div className="pl-3 sm:pl-4 border-l-2 sm:border-l-4 border-blue-500">

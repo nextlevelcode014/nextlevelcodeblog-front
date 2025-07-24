@@ -34,7 +34,7 @@ export default function Login() {
   const route = useRouter()
 
   if (isAuthenticated) {
-    route.push('/feed')
+    route.push('/')
   }
 
   const handleLoginSuccess = (message: string) => {
