@@ -12,8 +12,10 @@ import { useLoginMutation } from '@/services/muations'
 import { useRecaptcha } from '@/hooks/useRecaptcha'
 import { useState } from 'react'
 import GoogleLogin from './google-login'
+import { useRouter } from 'next/navigation'
 
 export default function Login() {
+  console.log('--- Login ---')
   const {
     register,
     handleSubmit,
@@ -28,7 +30,12 @@ export default function Login() {
   const [isLoadingMessage, setIsloadingMessage] = useState(false)
   const loginMutation = useLoginMutation()
   const { getReCaptchaToken } = useRecaptcha()
-  const { login } = useAuth()
+  const { login, isAuthenticated } = useAuth()
+  const route = useRouter()
+
+  if (isAuthenticated) {
+    route.push('/feed')
+  }
 
   const handleLoginSuccess = (message: string) => {
     setSuccessMessage(message)

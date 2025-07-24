@@ -391,6 +391,7 @@ export const Header = () => {
               ? 'Are you sure you want to permanently delete your account? This action cannot be undone.'
               : 'Are you sure you want to logout?'
           }
+          apiMessage={deleteMutation.error?.message}
           onConfirm={handleConfirmAction}
           onCancel={() => setActiveModal(null)}
           isLoading={deleteMutation.isPending}

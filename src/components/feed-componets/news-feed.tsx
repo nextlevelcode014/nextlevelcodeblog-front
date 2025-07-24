@@ -18,13 +18,12 @@ import {
 import { useQueryClient } from '@tanstack/react-query'
 
 export function NewsFeed() {
+  console.log('--- News Feed ---')
   const { data: posts, isLoading, error } = usePosts()
   const [activeCommentId, setActiveCommentId] = useState<string | null>(null)
   const { query } = useAuth()
   const currentUserId = query.data?.data.user.id || ''
   const queryClient = useQueryClient()
-
-  console.log(posts)
 
   const { register, handleSubmit, reset } = useForm<CreatePostData>()
 
@@ -39,7 +38,6 @@ export function NewsFeed() {
   const updateCommentMutation = useUpdateCommentMutation()
 
   const deleteCommentMutation = useDeleteCommentMutation()
-
   useEffect(() => {
     queryClient.invalidateQueries({ queryKey: ['posts'] })
   }, [
@@ -65,7 +63,6 @@ export function NewsFeed() {
   }
 
   const handleCommentSubmit = (postId: string, comment: string) => {
-    console.log(postId)
     postCommentMutation.mutate({
       post_id: postId,
       comment,

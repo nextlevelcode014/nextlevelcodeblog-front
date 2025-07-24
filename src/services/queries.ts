@@ -9,7 +9,10 @@ export function usePosts() {
       return posts
     },
     refetchInterval: 60 * 1000,
-    refetchOnWindowFocus: true,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 10, // 10 minutos
+    gcTime: 1000 * 60 * 30,
+    refetchOnMount: false,
   })
 }
 
@@ -19,6 +22,9 @@ export function useUser() {
     queryFn: () => apiService.getMe,
 
     refetchInterval: 60 * 1000,
-    refetchOnWindowFocus: true,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 30,
+    refetchOnMount: false,
   })
 }

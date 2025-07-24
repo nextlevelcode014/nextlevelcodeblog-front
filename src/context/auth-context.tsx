@@ -24,7 +24,8 @@ const AuthContext = createContext<AuthContextType | null>(null)
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter()
-  const [token, setToken] = useState<string | null>('')
+  const [token, setToken] = useState<string | null>(null)
+  const isTokenLoaded = token !== null
 
   const query = useQuery({
     queryKey: ['user', token],
@@ -32,7 +33,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (!token) return null
       return await apiService.getMe()
     },
-    enabled: !!token,
+    enabled: !!token && isTokenLoaded,
+    refetchInterval: 60 * 1000,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 30,
+    refetchOnMount: false,
   })
 
   useEffect(() => {

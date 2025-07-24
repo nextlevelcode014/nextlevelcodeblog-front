@@ -1,5 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
+import {
+  QueryClient,
+  useMutation,
+  UseMutationOptions,
+} from '@tanstack/react-query'
 import { apiService } from './api'
+import { Post } from '@/sanity/types'
+import { CreatePostData } from '@/types'
 
 export function useLoginMutation() {
   return useMutation({

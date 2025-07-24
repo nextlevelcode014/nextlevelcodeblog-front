@@ -7,7 +7,6 @@ export default function UnderConstruction() {
       <Wrench size={64} className="mb-4 text-yellow-500" />
       <h1 className="text-2xl font-bold mb-2">Page under development 🚧</h1>
       <p className="text-gray-400 mb-6">
-        Estamos trabalhando para trazer este conteúdo em breve. Fique ligado!
         We're working to bring this content soon. Stay tuned.
       </p>
       <Link

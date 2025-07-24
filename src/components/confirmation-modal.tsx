@@ -3,6 +3,7 @@ export const ConfirmationModal = ({
   isOpen,
   title,
   message,
+  apiMessage,
   onConfirm,
   onCancel,
   isLoading,
@@ -10,6 +11,7 @@ export const ConfirmationModal = ({
   isOpen: boolean
   title: string
   message: string
+  apiMessage: string | undefined
   onConfirm: () => void
   onCancel: () => void
   isLoading: boolean
@@ -21,6 +23,8 @@ export const ConfirmationModal = ({
       <div className="bg-[#1a1a1a] p-6 rounded-lg shadow-lg max-w-sm">
         <h3 className="text-lg font-bold text-teal-400 mb-4">{title}</h3>
         <p className="text-gray-300 mb-6">{message}</p>
+        <p className="text-gray-300 mb-4">{apiMessage}</p>
+
         <div className="flex justify-end gap-3">
           <button
             onClick={onCancel}

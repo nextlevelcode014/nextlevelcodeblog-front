@@ -10,7 +10,6 @@ const ReCaptchaProvider: React.FC<RecaptchaProviderProps> = ({ children }) => {
   const sitekey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 
   if (!sitekey) {
-    console.error('NEXT_PUBLIC_RECAPTCHA_SITE_KEY não encontrada')
     return <>{children}</>
   }
   return (

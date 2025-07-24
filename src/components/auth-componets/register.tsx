@@ -13,6 +13,7 @@ import { useRecaptcha } from '@/hooks/useRecaptcha'
 import GoogleLogin from './google-login'
 
 export default function Register() {
+  console.log('--- Register ---')
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isLoadingMessage, setIsloadingMessage] = useState(false)

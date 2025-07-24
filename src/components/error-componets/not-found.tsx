@@ -16,10 +16,10 @@ export default function NoPostsFound() {
         ></path>
       </svg>
       <h2 className="text-2xl font-semibold text-gray-700 mb-2">
-        Nenhum post encontrado
+        No post found
       </h2>
       <p className="text-gray-500 mb-6">
-        Parece que não conseguimos encontrar o que você está procurando.
+        It Looks like we don't can find what you're searching for.
       </p>
     </div>
   )

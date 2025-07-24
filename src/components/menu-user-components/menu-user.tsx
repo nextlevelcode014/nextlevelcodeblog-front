@@ -178,6 +178,7 @@ export default function UserMenu() {
             ? 'Are you sure you want to permanently delete your account? This action cannot be undone.'
             : 'Are you sure you want to logout?'
         }
+        apiMessage={deleteUserMutation.error?.message}
         onConfirm={
           activeModal === 'delete' && user?.data.user.authProvider === 'Google'
             ? handleConfirmAction
