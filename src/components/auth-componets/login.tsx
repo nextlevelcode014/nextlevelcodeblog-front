@@ -1,6 +1,6 @@
 'use client'
 
-import { LoginData } from '@/types'
+import { LoginData, LoginDataForm } from '@/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { FaLock } from 'react-icons/fa'
@@ -18,7 +18,7 @@ export default function Login() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginData>({
+  } = useForm<LoginDataForm>({
     resolver: zodResolver(loginSchema),
     mode: 'onBlur',
   })
@@ -42,7 +42,7 @@ export default function Login() {
     setIsloadingMessage(message)
   }
 
-  const handleLogin = async (data: LoginData) => {
+  const handleLogin = async (data: LoginDataForm) => {
     try {
       const token = await getReCaptchaToken('login_user')
 
@@ -51,10 +51,14 @@ export default function Login() {
         return
       }
 
-      data.recaptchaToken = token
-      data.authProvider = 'Credentials'
+      let loginData: LoginData = {
+        authProvider: 'Credentials',
+        recaptchaToken: token,
+        email: data.email,
+        password: data.password,
+      }
 
-      const result = await loginMutation.mutateAsync(data)
+      const result = await loginMutation.mutateAsync(loginData)
 
       if (result.token) {
         login(result.token)

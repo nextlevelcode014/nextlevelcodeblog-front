@@ -1,4 +1,4 @@
-import { LoginData, LoginResponse } from '@/types'
+import { LoginData, LoginDataForm, LoginResponse } from '@/types'
 import { UseMutationResult } from '@tanstack/react-query'
 import {
   FieldErrors,
@@ -10,11 +10,11 @@ import { FiArrowRight } from 'react-icons/fi'
 import { ImSpinner8 } from 'react-icons/im'
 
 interface LoginFormProps {
-  handleSubmit: UseFormHandleSubmit<LoginData>
-  handleLogin: (data: LoginData) => void
+  handleSubmit: UseFormHandleSubmit<LoginDataForm>
+  handleLogin: (data: LoginDataForm) => Promise<void>
   loginMutation: UseMutationResult<LoginResponse, Error, LoginData, unknown>
-  register: UseFormRegister<LoginData>
-  errors: FieldErrors<LoginData>
+  register: UseFormRegister<LoginDataForm>
+  errors: FieldErrors<LoginDataForm>
 }
 
 export default function LoginForm({

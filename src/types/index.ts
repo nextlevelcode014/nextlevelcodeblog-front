@@ -71,6 +71,11 @@ export interface LoginData {
   recaptchaToken: string
   authProvider: string
 }
+
+export interface LoginDataForm {
+  email: string
+  password: string
+}
 export interface LoginResponse {
   status: string
   token: string

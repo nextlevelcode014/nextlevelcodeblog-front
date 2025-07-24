@@ -32,9 +32,7 @@ if (!API_URL) {
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 })
 
 apiClient.interceptors.request.use((config) => {
@@ -149,11 +147,7 @@ export const apiService = {
     handleRequest(apiClient.get(`/auth/verify-email?token=${token}`)),
 
   resetPassword: (data: ResetPasswordData): ApiResponse<void> =>
-    handleRequest(
-      apiClient.post('/auth/reset-password', {
-        ...data,
-      }),
-    ),
+    handleRequest(apiClient.post('/auth/reset-password', { ...data })),
 
   forgotPassword: (email: string): ApiResponse<void> =>
     handleRequest(apiClient.post('/auth/forgot-password', { email })),
@@ -177,9 +171,5 @@ export const apiService = {
       }),
     ),
   verifyReCaptcha: (token: string): ApiResponse<recaptchaResponse> =>
-    handleRequest(
-      apiClient.post('/verify-captcha', {
-        token: token,
-      }),
-    ),
+    handleRequest(apiClient.post('/verify-captcha', { token: token })),
 }
