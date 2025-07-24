@@ -4,7 +4,7 @@ import { useAuth } from '@/context/auth-context'
 import {
   changePasswordSchema,
   changeUsernameSchema,
-  DeleteUserSchema,
+  deleteUserSchema,
 } from '@/services/schemas'
 import { DeleteUser, UsernameUpdate, UserPasswordUpdate } from '@/types'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -44,7 +44,7 @@ export default function UserMenu() {
   })
 
   const deleteUserForm = useForm<DeleteUser>({
-    resolver: zodResolver(DeleteUserSchema),
+    resolver: zodResolver(deleteUserSchema),
     mode: 'onBlur',
   })
 

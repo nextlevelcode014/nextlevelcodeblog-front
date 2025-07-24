@@ -140,8 +140,8 @@ export interface UserPasswordUpdate {
 }
 
 export interface UsernameUpdate {
-  name: String
-  password: String
+  password: string
+  name: string
 }
 
 export interface DeleteUser {

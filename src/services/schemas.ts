@@ -85,7 +85,7 @@ export const changeUsernameSchema = z.object({
     .max(10),
 })
 
-export const DeleteUserSchema = z.object({
+export const deleteUserSchema = z.object({
   password: z
     .string()
     .min(6, 'The password must be at least 6 characters long!'),
@@ -93,7 +93,8 @@ export const DeleteUserSchema = z.object({
 
 export type LoginFormData = z.infer<typeof loginSchema>
 export type RegisterFormData = z.infer<typeof registerSchema>
-export type DeleteUserFormData = z.infer<typeof DeleteUserSchema>
+export type DeleteUserFormData = z.infer<typeof deleteUserSchema>
+export type ChangeUsernameFormData = z.infer<typeof changeUsernameSchema>
 
 export const verificationSchema = z.object({
   token: z.string().min(1, 'Token de verificação é obrigatório'),
