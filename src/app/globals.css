@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.responsive-text {
+  @apply text-base md:text-lg lg:text-xl text-justify leading-relaxed text-gray-400;
+}
+
+.responsive-reading {
+  @apply text-3xl md:text-3xl lg:text-xl text-slate-300;
+}
+
+/* Adicione estas classes personalizadas se necessário */
+.icon-hover-effect {
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-hover-effect:hover {
+  transform: scale(1.1);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.img-container.responsive-text {
+  @apply text-base md:text-lg lg:text-xl text-justify leading-relaxed text-gray-400;
+}
+
+.responsive-reading {
+  @apply text-3xl md:text-3xl lg:text-xl text-slate-300;
+}
+/* Melhora legibilidade de screenshots escuros */
+
+/* Mantém fonte do terminal legível */
+.prose pre {
+  @apply bg-gray-950/60 p-4 rounded-lg border border-gray-700;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
