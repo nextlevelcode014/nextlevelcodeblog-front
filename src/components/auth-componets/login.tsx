@@ -15,7 +15,6 @@ import GoogleLogin from './google-login'
 import { useRouter } from 'next/navigation'
 
 export default function Login() {
-  console.log('--- Login ---')
   const {
     register,
     handleSubmit,

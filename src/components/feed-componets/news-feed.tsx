@@ -18,7 +18,6 @@ import {
 import { useQueryClient } from '@tanstack/react-query'
 
 export function NewsFeed() {
-  console.log('--- News Feed ---')
   const { data: posts, isLoading, error } = usePosts()
   const [activeCommentId, setActiveCommentId] = useState<string | null>(null)
   const { query } = useAuth()
